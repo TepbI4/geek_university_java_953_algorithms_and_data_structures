@@ -1,6 +1,6 @@
 package ru.gb.alekseiterentev;
 
-public class NoteBook {
+public class NoteBook implements Comparable<NoteBook> {
     private int price;
     private int ram;
     private Manufacturer manufacturer;
@@ -27,5 +27,25 @@ public class NoteBook {
 
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    @Override
+    public String toString() {
+        return "NoteBook{" +
+                "price=" + price +
+                ", ram=" + ram +
+                ", manufacturer=" + manufacturer +
+                '}';
+    }
+
+    @Override
+    public int compareTo(NoteBook o) {
+        if (this.getPrice() == o.getPrice()) {
+            if (this.getRam() == o.getRam()) {
+                return this.getManufacturer().compareTo(o.getManufacturer());
+            }
+            return Integer.compare(this.getRam(), o.getRam());
+        }
+        return Integer.compare(this.getPrice(), o.getPrice());
     }
 }

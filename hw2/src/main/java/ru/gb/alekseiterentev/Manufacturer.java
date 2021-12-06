@@ -2,11 +2,12 @@ package ru.gb.alekseiterentev;
 
 public enum Manufacturer {
 
-    LENUVO("Lenuvo"),
-    ASOS("Asos"),
-    MACNOTE("MacNote"),
+    XAMIOU("Xamiou"),
     ESER("Eser"),
-    XAMIOU("Xamiou");
+    MACNOTE("MacNote"),
+    ASOS("Asos"),
+    LENUVO("Lenuvo")
+    ;
 
     private final String value;
 
