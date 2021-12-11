@@ -38,7 +38,7 @@ public class LinkedDeque<E> extends LinkedQueue<E> implements Deque<E> {
         Node<E> removedNode = last;
         last = removedNode.prev;
         removedNode.prev = null;
-        removedNode.next = null;
+        last.next = null;
         size--;
 
         if (isEmpty()) {

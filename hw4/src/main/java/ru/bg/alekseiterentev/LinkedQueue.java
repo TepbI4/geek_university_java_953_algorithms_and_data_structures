@@ -2,6 +2,8 @@ package ru.bg.alekseiterentev;
 
 import ru.gb.alekseiterentev.queue.Queue;
 
+import java.util.Iterator;
+
 public class LinkedQueue<E> extends SimpleLinkedList<E> implements Queue<E> {
 
     protected Node<E> last;

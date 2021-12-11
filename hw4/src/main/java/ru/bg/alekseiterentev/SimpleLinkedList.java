@@ -1,9 +1,11 @@
 package ru.bg.alekseiterentev;
 
+import java.util.Iterator;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
-public class SimpleLinkedList<E> implements LinkedList<E> {
+public class SimpleLinkedList<E> implements LinkedList<E>, Iterable<E> {
 
     protected Node<E> first;
     protected int size;
@@ -111,5 +113,31 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
         sb.append("]");
 
         return sb.toString();
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new SimpleLinkedListIterator<>();
+    }
+
+    private class SimpleLinkedListIterator<E> implements Iterator<E> {
+
+        Node<E> currentNode;
+
+        public SimpleLinkedListIterator() {
+            currentNode = new Node(null, first, null);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return nonNull(currentNode.next);
+        }
+
+        @Override
+        public E next() {
+            Node<E> value = currentNode.next;
+            currentNode = currentNode.next;
+            return value.item;
+        }
     }
 }
